@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DinamicCV.Models;
 
 namespace DinamicCV.Data
 {
@@ -12,5 +13,6 @@ namespace DinamicCV.Data
             : base(options)
         {
         }
+        public DbSet<DinamicCV.Models.WorkData> WorkData { get; set; }
     }
 }

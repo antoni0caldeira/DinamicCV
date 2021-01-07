@@ -10,6 +10,22 @@ namespace DinamicCV.Controllers
     {
         public IActionResult Index()
         {
+            int hour = DateTime.Now.Hour;
+            string message;
+            if (hour >= 7 && hour < 12)
+            {
+                message = "É de manhã";
+            }
+            else if (hour >= 12 && hour< 20)
+            {
+                message = "É de tarde";
+            }
+            else
+            {
+                message = "Estamos de noite";
+            }
+            ViewBag.Message = message;
+
             return View();
         }
     }
