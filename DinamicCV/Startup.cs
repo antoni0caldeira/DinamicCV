@@ -66,6 +66,10 @@ namespace DinamicCV
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            if (env.IsDevelopment())
+            {
+                SeedData.InsereDadosFicaoCientifica((ApplicationDbContext)dbContext);
+            }
         }
     }
 }

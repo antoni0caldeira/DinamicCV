@@ -9,7 +9,7 @@ namespace DinamicCV.Data
     public class SeedData
     {
 
-        private static void InsereDatosFicaoCientifica(ApplicationDbContext dbContext)
+        internal static void InsereDadosFicaoCientifica(ApplicationDbContext dbContext)
         {
             if (dbContext.WorkData.Any()) return;
 
@@ -22,7 +22,23 @@ namespace DinamicCV.Data
                     FinalDate = new DateTime(2006, 5, 2),
                     JobTitle = "Java Developer",
                     JobDescription = "Java development for android devices"
-                }
+                },                
+                new WorkData
+                {
+                    Employer = "Delita",
+                    InitialDate = new DateTime(2006, 5, 2),
+                    FinalDate = new DateTime(2006, 5, 2),
+                    JobTitle = "Java Developer",
+                    JobDescription = "Java development for android devices"
+                },                
+                new WorkData
+                {
+                    Employer = "Delita",
+                    InitialDate = new DateTime(2006, 5, 2),
+                    FinalDate = new DateTime(2006, 5, 2),
+                    JobTitle = "Java Developer",
+                    JobDescription = "Java development for android devices"
+                },
 
             });
 
