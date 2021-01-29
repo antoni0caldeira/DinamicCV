@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DinamicCV.Models
 {
@@ -8,9 +9,13 @@ namespace DinamicCV.Models
         //[Required(ErrorMessage = "O nome do Empregador é obrigatório")]
         public String Employer { get; set; }
         //[Required(ErrorMessage = "A data Inicial é para preencher")]
+        //[DataType(DataType.Date)]
+
 
         public DateTime InitialDate { get; set; }
         //[Required(ErrorMessage = "A data Final também")]
+        //[DataType(DataType.Date)]
+
 
         public DateTime FinalDate { get; set; }
         //[Required(ErrorMessage = "Campo de preenchimento obrigatório")]
