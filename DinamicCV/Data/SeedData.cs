@@ -9,12 +9,12 @@ namespace DinamicCV.Data
     public class SeedData
     {
 
-        internal static void InsereDadosFicaoCientifica(ApplicationDbContext dbContext)
+        internal static void InsereDadosFicaoCientifica(ApplicationDbContext db)
         {
-            if (dbContext.WorkData.Any()) return;
+            if (db.WorkData.Any()) return;
 
 
-            dbContext.WorkData.AddRange(new WorkData[] {
+            db.WorkData.AddRange(new WorkData[] {
                 new WorkData
                 {
                     Employer = "Delita",
@@ -42,7 +42,7 @@ namespace DinamicCV.Data
 
             });
 
-            dbContext.SaveChanges();
+            db.SaveChanges();
 
         }
     }
