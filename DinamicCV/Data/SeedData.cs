@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace DinamicCV.Data
-{/// <summary>
+{
+/// <summary>
 /// Insere dados para teste na fase de desenvolvimento
 /// </summary>
     public class SeedData
