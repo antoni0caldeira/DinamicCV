@@ -29,7 +29,7 @@ namespace DinamicCV.Controllers
                 PaginaAtual = pagina
             };
 
-            List<WorkData> trabalhos = await db.WorkData(t => t.WorkData)
+            List<WorkData> trabalhos = await db.WorkData
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
