@@ -12,17 +12,37 @@ namespace DinamicCV.Controllers
 {
     public class WorkDatasController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext db;
 
         public WorkDatasController(ApplicationDbContext context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: WorkDatas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pagina = 1)
         {
-            return View(await _context.WorkData.ToListAsync());
+
+            Pagination paginacao = new Pagination
+            {
+                TotalItems = await db.WorkData.CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<WorkData> trabalhos = await db.WorkData(t => t.WorkData)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaWorkDataViewModel modelo = new ListaWorkDataViewModel
+            {
+                Paginacao = paginacao,
+                WorkDatas = trabalhos
+            };
+
+            return base.View(modelo);
+
+            //return View(await _context.WorkData.ToListAsync());
         }
 
         // GET: WorkDatas/Details/5
@@ -33,7 +53,7 @@ namespace DinamicCV.Controllers
                 return NotFound();
             }
 
-            var workData = await _context.WorkData
+            var workData = await db.WorkData
                 .FirstOrDefaultAsync(m => m.WorkDataId == id);
             if (workData == null)
             {
@@ -58,8 +78,8 @@ namespace DinamicCV.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(workData);
-                await _context.SaveChangesAsync();
+                db.Add(workData);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(workData);
@@ -73,7 +93,7 @@ namespace DinamicCV.Controllers
                 return NotFound();
             }
 
-            var workData = await _context.WorkData.FindAsync(id);
+            var workData = await db.WorkData.FindAsync(id);
             if (workData == null)
             {
                 return NotFound();
@@ -97,8 +117,8 @@ namespace DinamicCV.Controllers
             {
                 try
                 {
-                    _context.Update(workData);
-                    await _context.SaveChangesAsync();
+                    db.Update(workData);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +144,7 @@ namespace DinamicCV.Controllers
                 return NotFound();
             }
 
-            var workData = await _context.WorkData
+            var workData = await db.WorkData
                 .FirstOrDefaultAsync(m => m.WorkDataId == id);
             if (workData == null)
             {
@@ -139,15 +159,15 @@ namespace DinamicCV.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var workData = await _context.WorkData.FindAsync(id);
-            _context.WorkData.Remove(workData);
-            await _context.SaveChangesAsync();
+            var workData = await db.WorkData.FindAsync(id);
+            db.WorkData.Remove(workData);
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool WorkDataExists(int id)
         {
-            return _context.WorkData.Any(e => e.WorkDataId == id);
+            return db.WorkData.Any(e => e.WorkDataId == id);
         }
     }
 }
