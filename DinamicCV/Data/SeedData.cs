@@ -31,26 +31,26 @@ namespace DinamicCV.Data
                 new WorkData
                 {
                     Employer = "Delita",
-                    InitialDate = new DateTime(2006, 5, 2),
-                    FinalDate = new DateTime(2006, 5, 2),
+                    InitialDate = new DateTime(2020, 7, 1),
+                    FinalDate = new DateTime(2020, 8, 31),
                     JobTitle = "Java Developer",
                     JobDescription = "Java development for android devices"
                 },                
                 new WorkData
                 {
-                    Employer = "Delita",
-                    InitialDate = new DateTime(2006, 5, 2),
-                    FinalDate = new DateTime(2006, 5, 2),
-                    JobTitle = "Java Developer",
-                    JobDescription = "Java development for android devices"
+                    Employer = "ModeloContinente",
+                    InitialDate = new DateTime(2018, 9, 1),
+                    FinalDate = new DateTime(2019, 5, 2),
+                    JobTitle = "Store Sales Assistant",
+                    JobDescription = "Store Sales Assistant"
                 },                
                 new WorkData
                 {
-                    Employer = "Delita",
-                    InitialDate = new DateTime(2006, 5, 2),
-                    FinalDate = new DateTime(2006, 5, 2),
-                    JobTitle = "Java Developer",
-                    JobDescription = "Java development for android devices"
+                    Employer = "Pautaconta",
+                    InitialDate = new DateTime(2016, 4, 1),
+                    FinalDate = new DateTime(2017, 6, 30),
+                    JobTitle = "Portuguese Certified Accountant",
+                    JobDescription = "Prepare and examine financial records and statements"
                 },
 
             });
