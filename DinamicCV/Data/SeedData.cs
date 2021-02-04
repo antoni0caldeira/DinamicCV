@@ -19,7 +19,7 @@ namespace DinamicCV.Data
         /// 
 
 
-        private const string NOME_UTILIZADOR_ADMIN_PADRAO = "antoniocaldeira@yahoo,com";
+        private const string NOME_UTILIZADOR_ADMIN_PADRAO = "antoniocaldeira@yahoo.com";
         private const string PASSWORD_UTILIZADOR_ADMIN_PADRAO = "Secret123$";
 
         internal static void InsereDadosFicaoCientifica(ApplicationDbContext db)

@@ -1,5 +1,7 @@
-﻿using DinamicCV.Models;
+﻿using DinamicCV.Data;
+using DinamicCV.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,29 @@ namespace DinamicCV.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext db;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            this.db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+
+            
+            List<WorkData> trabalhos = await db.WorkData                
+                .ToListAsync();
+
+            ListaWorkDataViewModel modelo = new ListaWorkDataViewModel
+            {
+                WorkDatas = trabalhos
+            };
+
+            return base.View(modelo);
+
         }
 
         public IActionResult Privacy()
