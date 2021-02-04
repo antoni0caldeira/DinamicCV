@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DinamicCV.Data;
 using DinamicCV.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DinamicCV.Controllers
 {
+    [Authorize]
     public class WorkDatasController : Controller
     {
+        
         private readonly ApplicationDbContext db;
 
         public WorkDatasController(ApplicationDbContext context)
