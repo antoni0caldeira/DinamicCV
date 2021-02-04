@@ -1,10 +1,11 @@
-﻿@{
+﻿@model ListaWorkDataViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="container text-center">
-    <h1 class="row" >@Greatings.Saudacao()</h1>
-    
+    <h1 class="row">@Greatings.Saudacao()</h1>
+
 </div>
 <div class="container">
     <hr>
@@ -94,86 +95,73 @@
     <hr>
     <h2>Work Experience</h2>
     <hr>
-    <div class="row">
-        <div class="col-md-6 col-sm-12">
-            <div class="row">
-                <div class="col-5">
-                    <h4>Delita</h4>
-                </div>
-                <div class="col-6">
-                    <h5 class="text-right"><span aria-hidden="true"></span> Jul 2020 - Set 2020</h5>
-                </div>
-            </div>
-            <h5><span class="badge badge-secondary">Java Developer</span></h5>
-            <p>Java development for android devices</p>
-            <ul>
-                <li>Contact App</li>
-                <li>Consumer Card management App.</li>
-                <!--<li>Lorem ipsum dolor sit amet, consectetur adipisicing.</li>-->
-            </ul>
-        </div>
-        <div class="col-md-6 col-sm-12">
-            <div class="row">
-                <div class="col-5">
-                    <h4>PautaConta</h4>
-                </div>
-                <div class="col-6">
-                    <h5 class="text-right"><span aria-hidden="true"></span> Jan 2002 - Dec 2006</h5>
-                </div>
-            </div>
-            <h5><span class="badge badge-secondary">Portuguese Certified Accountant</span></h5>
-            <p>Prepare and examine financial records</p>
-            <ul>
-                <li>Preparing accounts and tax returns.</li>
-                <li>Administering payrolls and controlling income and expenditure. auditing financial information.</li>
-                <li>Compiling and presenting reports, budgets, commentaries and financial statements.</li>
-            </ul>
-        </div>
-    </div>
-    <hr>
-    <h2>Portfolio</h2>
-    <hr>
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/java_tech.jpg" alt="Logotipo do Java" width="300" height="300"></div>
-            <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/1_iIXOmGDzrtTJmdwbn7cGMw.png" alt="Java Logo" width="400" height="300"></div>
-        </div>
-        <div class="row text-center">
-            <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/android-10-google.jpg" alt="android 10 logo" width="300" height="400"></div>
-            <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/Android_phone.png" alt="android phone logo" width="400" height="300"></div>
-        </div>
-    </div>
-    <hr>
-    <h2>Contact</h2>
-    <hr>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8  col-12 jumbotron">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" aria-describedby="emailHelp">
-                        <span id="emailHelp" class="form-text text-muted" style="display: none;">Please enter a valid e-mail address.</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message" aria-describedby="messageHelp"></textarea>
-                        <span id="messageHelp" class="form-text text-muted" style="display: none;">Please enter a message.</span>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
     
+    <div>
+        @foreach (var item in Model.WorkDatas)
+        {
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-5">
+                            <h4>@Html.DisplayFor(modelItem => item.Employer)</h4>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="text-right"><span aria-hidden="true"></span> @Html.DisplayFor(modelItem => item.InitialDate) - @Html.DisplayFor(modelItem => item.FinalDate)</h5>
+                        </div>
+                    </div>
+                    <h5><span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.JobTitle)</span></h5>
+                    <p>@Html.DisplayFor(modelItem => item.JobDescription)</p>
+                </div>
+            </div>
+        }
+                    
+
     
-</div>
+            <hr>
+            <h2>Portfolio</h2>
+            <hr>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/java_tech.jpg" alt="Logotipo do Java" width="300" height="300"></div>
+                    <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/1_iIXOmGDzrtTJmdwbn7cGMw.png" alt="Java Logo" width="400" height="300"></div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/android-10-google.jpg" alt="android 10 logo" width="300" height="400"></div>
+                    <div class="col-sm-6 col-12 p-0"><img class="img-thumbnail" src="~/img/Android_phone.png" alt="android phone logo" width="400" height="300"></div>
+                </div>
+            </div>
+            <hr>
+            <h2>Contact</h2>
+            <hr>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8  col-12 jumbotron">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" aria-describedby="emailHelp">
+                                <span id="emailHelp" class="form-text text-muted" style="display: none;">Please enter a valid e-mail address.</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Message" aria-describedby="messageHelp"></textarea>
+                                <span id="messageHelp" class="form-text text-muted" style="display: none;">Please enter a message.</span>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../../PHP/js/jquery-3.3.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

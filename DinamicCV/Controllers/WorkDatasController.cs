@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DinamicCV.Controllers
 {
-    [Authorize]
+   
     public class WorkDatasController : Controller
     {
         
