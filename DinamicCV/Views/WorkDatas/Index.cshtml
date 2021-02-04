@@ -1,10 +1,10 @@
 ﻿@model ListaWorkDataViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Experiência Profissional";
 }
 
-<h1>Index</h1>
+<h1>Experiência Profissional</h1>
 
 <p>
     <a asp-action="Create">Inserir Novo Registo</a>
@@ -50,9 +50,9 @@
                     @Html.DisplayFor(modelItem => item.JobDescription)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.WorkDataId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.WorkDataId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.WorkDataId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.WorkDataId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.WorkDataId">Visualizar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.WorkDataId">Apagar</a>
                 </td>
             </tr>
         }

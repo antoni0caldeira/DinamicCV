@@ -1,13 +1,13 @@
 ﻿@model DinamicCV.Models.WorkData
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Visualizar Registo";
 }
 
-<h1>Details</h1>
+<h1>Visualizar Registo</h1>
 
 <div>
-    <h4>WorkData</h4>
+    <h4>Experiência Profissional</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -43,6 +43,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.WorkDataId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.WorkDataId">Editar</a> |
+    <a asp-action="Index">Voltar</a>
 </div>
